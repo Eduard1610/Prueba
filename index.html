@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"> 
+  <title>Poema con AJAX</title>
+  <script>
+    function recitar() {
+      const url = 'http://localhost:3000/recitar'
+      fetch(url).then(
+          response => response.json()
+      ).then(
+          data => {
+              document.querySelector("#poema").innerHTML = data.text
+          }
+      )
+    }
+  </script>
+</head>
+  <body>
+      <h1>Mi primer AJAX</h1>
+      <input type="button" value="Recitar" onclick= "recitar('poema.txt','poema')">
+      
+      <pre>
+      <div id="poema">
+        <p>El poema se verá aquí.</p>
+      </div>
+      </pre>
+  </body>
+</html>
